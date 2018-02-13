@@ -63,13 +63,13 @@
             </plugin>
 
         </plugins>
-        <!--<extensions>-->
-            <!--<extension>-->
-                <!--<groupId>com.github.shyiko.servers-maven-extension</groupId>-->
-                <!--<artifactId>servers-maven-extension</artifactId>-->
-                <!--<version>1.3.0</version>-->
-            <!--</extension>-->
-        <!--</extensions>-->
+        <extensions>
+            <extension>
+                <groupId>com.github.shyiko.servers-maven-extension</groupId>
+                <artifactId>servers-maven-extension</artifactId>
+                <version>1.3.0</version>
+            </extension>
+        </extensions>
     </build>
 
 </project>
