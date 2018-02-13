@@ -54,8 +54,8 @@
                         <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
                         <versionTagPrefix>version-</versionTagPrefix>
                     </flowInitContext>
-                    <username>aboudnik</username>
-                    <password>Passme12</password>
+                    <username>${settings.servers.github.username</username>
+                    <password>${settings.servers.github.password</password>
                     <noDeploy>true</noDeploy>
                     <squash>true</squash>
                     <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
