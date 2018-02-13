@@ -12,7 +12,9 @@
     </modules>
 
     <scm>
-        <developerConnection>scm:git:https://https://github.com/aboudnik/datablock.git</developerConnection>
+        <connection>scm:git:file://.</connection>
+        <url>scm:git:file://.</url>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
