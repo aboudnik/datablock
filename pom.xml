@@ -5,6 +5,11 @@
     <groupId>org.boudnik.datablock</groupId>
     <artifactId>parent</artifactId>
     <version>1.0.8-SNAPSHOT</version>
+    <properties>
+        <kv.version>1.0-SNAPSHOT</kv.version>
+        <ignite-core.version>2.1.0</ignite-core.version>
+        <junit.version>RELEASE</junit.version>
+    </properties>
     <packaging>pom</packaging>
 
     <modules>
@@ -23,7 +28,17 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>RELEASE</version>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.ignite</groupId>
+                <artifactId>ignite-core</artifactId>
+                <version>${ignite-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.boudnik</groupId>
+                <artifactId>kv</artifactId>
+                <version>${kv.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
