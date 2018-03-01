@@ -17,7 +17,7 @@
         </dependency>
         <dependency>
             <groupId>org.boudnik</groupId>
-            <artifactId>kv</artifactId>
+            <artifactId>kv-framework</artifactId>
         </dependency>
     </dependencies>
 
