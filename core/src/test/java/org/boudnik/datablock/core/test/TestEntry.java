@@ -6,10 +6,10 @@ import org.boudnik.framework.OBJ;
  * @author Alexandre_Boudnik
  * @since 03/01/18 14:20
  */
-public class Entry implements OBJ<String> {
+public class TestEntry implements OBJ<String> {
     private final String  url;
 
-    public Entry(String url) {
+    public TestEntry(String url) {
         this.url = url;
     }
 
