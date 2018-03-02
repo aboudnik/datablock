@@ -15,10 +15,10 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.boudnik</groupId>
-            <artifactId>kv-framework</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.boudnik</groupId>-->
+            <!--<artifactId>kv-framework</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>
