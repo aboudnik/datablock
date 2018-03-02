@@ -5,7 +5,7 @@
 
     <groupId>org.boudnik.datablock</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <properties>
         <kv.version>1.0</kv.version>
         <junit.version>RELEASE</junit.version>
@@ -64,8 +64,9 @@
                             <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
                             <versionTagPrefix>DATABLOCK-</versionTagPrefix>
                         </flowInitContext>
-                        <pushReleases>true</pushReleases>
-                        <pushHotfixes>true</pushHotfixes>
+                        <!--<pushReleases>true</pushReleases>-->
+                        <!--<pushHotfixes>true</pushHotfixes>-->
+                        <noDeploy>true</noDeploy>
                         <username>${settings.servers.github.username</username>
                         <password>${settings.servers.github.password</password>
                     </configuration>
