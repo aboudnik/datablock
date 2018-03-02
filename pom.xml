@@ -4,7 +4,7 @@
 
     <groupId>org.boudnik.datablock</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <properties>
         <kv.version>1.0</kv.version>
         <junit.version>RELEASE</junit.version>
