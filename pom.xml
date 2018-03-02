@@ -4,11 +4,16 @@
 
     <groupId>org.boudnik.datablock</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
+    <properties>
+        <kv.version>1.0</kv.version>
+        <junit.version>RELEASE</junit.version>
+    </properties>
     <packaging>pom</packaging>
 
     <modules>
         <module>core</module>
+        <!--<module>gof</module>-->
     </modules>
 
     <scm>
@@ -22,7 +27,12 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>RELEASE</version>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.boudnik</groupId>
+                <artifactId>kv-framework</artifactId>
+                <version>${kv.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -39,32 +49,29 @@
                         <target>1.8</target>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>external.atlassian.jgitflow</groupId>
+                    <artifactId>jgitflow-maven-plugin</artifactId>
+                    <version>1.0-m5.1</version>
+                    <configuration>
+                        <flowInitContext>
+                            <masterBranchName>master</masterBranchName>
+                            <developBranchName>development</developBranchName>
+                            <featureBranchPrefix>feature-</featureBranchPrefix>
+                            <releaseBranchPrefix>release-</releaseBranchPrefix>
+                            <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                            <versionTagPrefix>version-</versionTagPrefix>
+                        </flowInitContext>
+                        <username>${settings.servers.github.username</username>
+                        <password>${settings.servers.github.password</password>
+                        <noDeploy>true</noDeploy>
+                        <squash>true</squash>
+                        <scmCommentPrefix>[RELEASE]</scmCommentPrefix>
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
-        <plugins>
-
-            <plugin>
-                <groupId>external.atlassian.jgitflow</groupId>
-                <artifactId>jgitflow-maven-plugin</artifactId>
-                <version>1.0-m5.1</version>
-                <configuration>
-                    <flowInitContext>
-                        <masterBranchName>master</masterBranchName>
-                        <developBranchName>development</developBranchName>
-                        <featureBranchPrefix>feature-</featureBranchPrefix>
-                        <releaseBranchPrefix>release-</releaseBranchPrefix>
-                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
-                        <versionTagPrefix>version-</versionTagPrefix>
-                    </flowInitContext>
-                    <username>${settings.servers.github.username</username>
-                    <password>${settings.servers.github.password</password>
-                    <noDeploy>true</noDeploy>
-                    <squash>true</squash>
-                    <scmCommentPrefix>[RELEASE] </scmCommentPrefix>
-                </configuration>
-            </plugin>
-
-        </plugins>
         <extensions>
             <extension>
                 <groupId>com.github.shyiko.servers-maven-extension</groupId>
