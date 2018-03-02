@@ -6,7 +6,7 @@
     <artifactId>parent</artifactId>
     <version>1.0.8</version>
     <properties>
-        <kv.version>1.0-SNAPSHOT</kv.version>
+        <kv.version>1.0</kv.version>
         <junit.version>RELEASE</junit.version>
     </properties>
     <packaging>pom</packaging>
