@@ -1,14 +1,20 @@
 package org.boudnik.builder;
 
-import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * @author Alexandre_Boudnik
  * @since 03/15/18 17:19
  */
-public class Sales implements Resource {
+public class Sales extends Dimensional {
+
+    public static final String DEPARTMENT = "department";
+    public static final String DATE = "month";
+
+    public Sales(Map<String, Object> dimensions) {
+        super(dimensions);
+    }
+
     @Override
     public String type() {
         return "sales";
@@ -16,17 +22,19 @@ public class Sales implements Resource {
 
     @Override
     public Set<Resource> prerequisites() {
-        return dimensions().stream().map(new Function<Dimension, Resource>() {
-            @Override
-            public Resource apply(Dimension dimension) {
-                return null;
-            }
-        }).onClose(new Runnable() {
-            @Override
-            public void run() {
+        Map<String, Object> dimensions = dimensions();
 
-            }
-        }).collect(Collectors.toSet());
+        Map<String, Object> inventory = new HashMap<>();
+        inventory.put(DEPARTMENT, dimensions.get(DEPARTMENT));
+
+        Map<String, Object> customers = new HashMap<>();
+        customers.put(DEPARTMENT, dimensions.get(DEPARTMENT));
+        customers.put(DATE, dimensions.get(DATE));
+
+        return new HashSet<>(Arrays.asList(
+                new Inventory(inventory),
+                new Customers(customers)
+        ));
     }
 
     @Override
