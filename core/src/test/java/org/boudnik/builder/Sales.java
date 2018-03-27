@@ -8,32 +8,36 @@ import java.util.*;
  */
 public class Sales extends Dimensional {
 
+    public static final String STATE = "state";
     public static final String DEPARTMENT = "department";
     public static final String DATE = "month";
-
-    public Sales(Map<String, Object> dimensions) {
-        super(dimensions);
-    }
 
     @Override
     public String type() {
         return "sales";
     }
 
+    public Sales(Dimension... dimensions) {
+        super(dimensions);
+    }
+
+    @Override
+    public Set<String> names() {
+        return new HashSet<>(Arrays.asList(STATE, DEPARTMENT, DATE));
+    }
+
     @Override
     public Set<Resource> prerequisites() {
-        Map<String, Object> dimensions = dimensions();
-
-        Map<String, Object> inventory = new HashMap<>();
-        inventory.put(DEPARTMENT, dimensions.get(DEPARTMENT));
-
-        Map<String, Object> customers = new HashMap<>();
-        customers.put(DEPARTMENT, dimensions.get(DEPARTMENT));
-        customers.put(DATE, dimensions.get(DATE));
+        Dimensions dimensions = dimensions();
 
         return new HashSet<>(Arrays.asList(
-                new Inventory(inventory),
-                new Customers(customers)
+                new Inventory(
+                        dimensions.get(DEPARTMENT)
+                ),
+                new Customers(
+                        dimensions.get(DEPARTMENT),
+                        dimensions.get("quarter")
+                )
         ));
     }
 

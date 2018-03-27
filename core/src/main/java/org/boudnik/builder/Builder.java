@@ -10,7 +10,7 @@ public class Builder {
         return new Builder();
     }
 
-    public Resource build(Resource resource) {
+    public <T extends Resource> T build(T resource) {
         return resource;
     }
 }

@@ -18,10 +18,6 @@ public interface Resource {
         return null;
     }
 
-    default Map dimensions() {
-        return Collections.emptyMap();
-    }
-
     default Set<Resource> prerequisites() {
         return Collections.emptySet();
     }

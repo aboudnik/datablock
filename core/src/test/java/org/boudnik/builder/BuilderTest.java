@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -24,26 +23,29 @@ public class BuilderTest {
 
     @Test
     public void buildNoDependencies() {
-        Resource sales = builder.build(
-                new Sales(new HashMap<String, Object>() {{
-                    put("department", 42);
-                }}));
-        assertNotNull(sales);
-        assertTrue(sales.prerequisites().isEmpty());
-        assertFalse(sales.dimensions().isEmpty());
-        assertTrue(sales.isSatisfied());
+        Stores stores = builder.build(
+                new Stores(
+                        new Dimension("department", 42)
+                ));
+        assertNotNull(stores);
+        assertFalse(stores.dimensions().isEmpty());
+        assertTrue(stores.prerequisites().isEmpty());
+        assertTrue(stores.isSatisfied());
     }
 
     @Test
     public void build() {
-        Resource sales = builder.build(
-                new Sales(new HashMap<String, Object>() {{
-                    put("date", LocalDate.of(2018, 1, 26));
-                    put("department", 42);
-                }}));
+        Sales sales = builder.build(
+                new Sales(
+                        new Dimension("date", LocalDate.of(2018, 1, 26)),
+                        new Dimension("quarter", LocalDate.of(2018, 1, 1), LocalDate.of(2018, 3, 31)),
+                        new Dimension("department", 42)
+                )
+        );
         assertNotNull(sales);
-        assertFalse(sales.prerequisites().isEmpty());
-        System.out.println("sales = " + sales);
         assertFalse(sales.dimensions().isEmpty());
+        assertFalse(sales.prerequisites().isEmpty());
+        assertFalse(sales.isSatisfied());
+        System.out.println("sales = " + sales);
     }
 }

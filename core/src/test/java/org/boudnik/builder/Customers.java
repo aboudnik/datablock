@@ -1,8 +1,5 @@
 package org.boudnik.builder;
 
-import java.util.Map;
-import java.util.Set;
-
 /**
  * @author Alexandre_Boudnik
  * @since 03/16/18 11:51
@@ -13,7 +10,12 @@ public class Customers extends Dimensional {
         return "customers";
     }
 
-    public Customers(Map<String, Object>dimensions) {
+    public Customers(Dimension... dimensions) {
         super(dimensions);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -2,16 +2,15 @@ package org.boudnik.builder;
 
 /**
  * @author Alexandre_Boudnik
- * @since 03/15/18 18:02
+ * @since 03/20/18 11:46
  */
-public class Inventory extends Dimensional {
-
+public class Stores extends Dimensional {
     @Override
     public String type() {
-        return "inventory";
+        return "stores";
     }
 
-    public Inventory(Dimension... dimensions) {
+    public Stores(Dimension... dimensions) {
         super(dimensions);
     }
 }
